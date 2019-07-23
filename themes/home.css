@@ -58,8 +58,9 @@ body{
 
 #logo{
 	display: block;
-	width:4.5em;
+	width:6em;
 	margin:auto;
+	border:1px solid black;
 }
 
 /*Main*/
