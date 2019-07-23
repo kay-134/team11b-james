@@ -15,11 +15,15 @@ the_jinja_env = jinja2.Environment(
 # the handler section
 class MainHandler(webapp2.RequestHandler):
   def get(self):  # for a get request
-    self.response.write('Hello')  # the response
-
-
+    home_template = the_jinja_env.get_template('templates/home.html')
+    self.response.write(home_template.render())
+class LoginHandler(webapp2.RequestHandler):
+	def get(self):
+		login_template = the_jinja_env.get_template('templates/login.html')
+		self.response.write(login_template.render())
 # the app configuration section	
 app = webapp2.WSGIApplication([
   #('/', MainPage),
   ('/', MainHandler),
+  ('/login', LoginHandler)
   ], debug=True)
