@@ -19,15 +19,16 @@ class MainHandler(webapp2.RequestHandler):
     self.response.write(home_template.render())
 
 class LoginHandler(webapp2.RequestHandler):
-	def get(self):
+  def get(self):  # for a get request
     login_template = the_jinja_env.get_template('templates/login.html')
     self.response.write(login_template.render())
-		
-class SignHandler(webapp.RequestHandler):
-	def get(self):
-	   sign_template = the_jinja_env.get_template('templates/sign.html')
-	   self.response.write(sign_template.render())
-class AboutHandler(webapp.RequestHandler):
+
+class SignHandler(webapp2.RequestHandler):
+  def get(self):  # for a get request
+    sign_template = the_jinja_env.get_template('templates/sign.html')
+    self.response.write(sign_template.render())
+
+class AboutHandler(webapp2.RequestHandler):
 	def get(self):
 	   about_template = the_jinja_env.get_template('templates/about.html')
 	   self.response.write(about_template.render())
@@ -36,7 +37,7 @@ class AboutHandler(webapp.RequestHandler):
 app = webapp2.WSGIApplication([
   #('/', MainPage),
   ('/', MainHandler),
-  ('/login', LoginHandler)
-  ('/sign', SignHandler)
+  ('/login', LoginHandler),
+  ('/sign', SignHandler),
   ('/about', AboutHandler)
   ], debug=True)
