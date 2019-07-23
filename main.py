@@ -20,8 +20,8 @@ class MainHandler(webapp2.RequestHandler):
 
 class LoginHandler(webapp2.RequestHandler):
 	def get(self):
-	  login_template = the_jinja_env.get_template('templates/login.html')
-	   self.response.write(login_template.render())
+    login_template = the_jinja_env.get_template('templates/login.html')
+    self.response.write(login_template.render())
 		
 class SignHandler(webapp.RequestHandler):
 	def get(self):
