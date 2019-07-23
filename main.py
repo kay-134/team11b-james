@@ -27,6 +27,10 @@ class SignHandler(webapp.RequestHandler):
 	def get(self):
 	   sign_template = the_jinja_env.get_template('templates/sign.html')
 	   self.response.write(sign_template.render())
+class AboutHandler(webapp.RequestHandler):
+	def get(self):
+	   about_template = the_jinja_env.get_template('templates/about.html')
+	   self.response.write(about_template.render())
 		
 # the app configuration section	
 app = webapp2.WSGIApplication([
@@ -34,4 +38,5 @@ app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/login', LoginHandler)
   ('/sign', SignHandler)
+  ('/about', AboutHandler)
   ], debug=True)
