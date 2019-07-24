@@ -63,3 +63,6 @@ body{
 	width:5em;
 	margin:0 auto;
 }
+#login {
+	z-index: 100;
+}
