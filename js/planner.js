@@ -3,12 +3,7 @@
 $(document).ready(function(){
     getWeather();
 
-navigator.geolocation.getCurrentPosition(callbackfunction)
-if (navigator.geolocation) { //check if geolocation is available
-                navigator.geolocation.getCurrentPosition(function(position){
-                  console.log(position);
-                });   
-            }
+
 function getWeather(){
    //getting the city or area key
     $.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=WgWCsW328fzBKdm4t3Aoci34y8ooI2ft&q=chelsea`, function(city){
