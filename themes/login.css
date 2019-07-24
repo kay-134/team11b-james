@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-
+td:hover {
+	background-color: blue;
+}
 :root{
 	--yellow:rgb(255,255,102);
 	--blue:rgb(114,216,255);
