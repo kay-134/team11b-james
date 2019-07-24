@@ -108,7 +108,7 @@ app = webapp2.WSGIApplication([
   ('/about', AboutHandler),
   ('/uploadUser', SignUp),
   ('/validateUser',ValidateUser),
-  ('/planner',Planner),
-  ('/signout',SignOut),
+  # ('/planner',Planner),
+  # ('/signout',SignOut),
   ('/day',DayLayout)
   ], debug=True)
