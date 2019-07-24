@@ -66,6 +66,10 @@ function showCalendar(month, year) {
 
             else {
                 let cell = document.createElement("td");
+                let link = document.createElement('a');
+                link.setAttribute('href','/day');
+                cell.appendChild(link)
+                
                 let cellText = document.createTextNode(date);
 
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
