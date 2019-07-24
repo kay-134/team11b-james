@@ -74,7 +74,7 @@ class ValidateUser(webapp2.RequestHandler):
 		# 	self.response.write(planner_template.render(variable_dict))
 
 		planner_template = the_jinja_env.get_template('templates/planner.html')
-		self.response.write(planner_template.render(variable_dict))
+		self.response.write(planner_template.render())
 
 
 
