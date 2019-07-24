@@ -44,6 +44,9 @@ class getUserName(webapp2.RequestHandler):
         usernam = getUser(user)
         account = username(user = usernam)
         account.put();
+        planner_template = the_jinja_env.get_template('templates/planner.html')
+        vars_dict = {'username' : usernam}
+        self.response.write(planner_template.render(vars_dict))
 # the app configuration section	
 app = webapp2.WSGIApplication([
   #('/', MainPage),
