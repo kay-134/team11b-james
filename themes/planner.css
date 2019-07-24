@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 
-
+.template{
+	margin-top: 3em;
+}
 
 
 td:hover {
