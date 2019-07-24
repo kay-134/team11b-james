@@ -85,3 +85,14 @@ function showCalendar(month, year) {
     }
 
 }
+$(document).ready(function(){
+    $('.july-01').click(getWeather)
+
+function getWeather(){
+    console.log('july pushed')
+
+
+};
+});
+  
+
