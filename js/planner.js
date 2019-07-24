@@ -69,8 +69,9 @@ function showCalendar(month, year) {
                 let link = document.createElement('a');
                 link.setAttribute('href','/day');
                 cell.appendChild(link)
+
                 
-                let cellText = document.createTextNode(date);
+                let cellText = link.appendChild().createTextNode(date)
 
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
