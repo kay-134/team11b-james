@@ -90,10 +90,10 @@ class ValidateUser(webapp2.RequestHandler):
 # 		home_template = the_jinja_env.get_template('templates/home.html')
 # 		self.response.write(home_template.render())
 
-class Planner(webapp2.RequestHandler):
-	def get(self):
-		planner_template = the_jinja_env.get_template('templates/planner.html')
-		self.response.write(planner_template.render())
+# class Planner(webapp2.RequestHandler):
+# 	def get(self):
+# 		planner_template = the_jinja_env.get_template('templates/planner.html')
+# 		self.response.write(planner_template.render())
 
 class DayLayout(webapp2.RequestHandler):
 	def get(self):
