@@ -63,3 +63,44 @@ body{
 	width:5em;
 	margin:0 auto;
 }
+#
+
+/*Main*/
+
+#main{
+	margin-top:7em;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+#content{
+	text-align: center;
+}
+
+/*Kendric's bio*/
+.person{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+.person h2{
+	grid-column: span 2;
+}
+
+#kendric{
+
+}
+#ken_image{
+	border-radius:50%
+}
+#kayley{
+
+}
+#ka_image{
+	border-radius:50%;
+}
+#mannendri{
+
+}
+#man_image{
+	border-radius:50%
+}
