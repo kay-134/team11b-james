@@ -70,3 +70,7 @@ body{
 	width:5em;
 	margin:0 auto;
 }
+
+.container p{
+	margin-top:10em;
+}

@@ -6,4 +6,4 @@ class User(ndb.Model):
 	email = ndb.StringProperty(required=True)
 	password = ndb.StringProperty(required=True)
 	islogged = ndb.BooleanProperty(default=False)
-	
+
