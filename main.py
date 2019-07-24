@@ -74,9 +74,12 @@ class ValidateUser(webapp2.RequestHandler):
 		# 	self.response.write(planner_template.render(variable_dict))
 
 		planner_template = the_jinja_env.get_template('templates/planner.html')
-		self.response.write(planner_template.render(variable_dict))
+		self.response.write(planner_template.render())
 
-
+class Planner(webapp2.RequestHandler):
+	def get(self):
+		planner_template = the_jinja_env.get_template('templates/planner.html')
+		self.response.write(planner_template.render())
 
 
 # the app configuration section	
@@ -87,5 +90,6 @@ app = webapp2.WSGIApplication([
   ('/sign', SignHandler),
   ('/about', AboutHandler),
   ('/uploadUser', SignUp),
-  ('/validateUser',ValidateUser)
+  ('/validateUser',ValidateUser),
+  ('/planner',Planner)
   ], debug=True)
