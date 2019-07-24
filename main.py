@@ -2,7 +2,7 @@
 import webapp2
 import jinja2
 import os
-from models import username
+from models import User
 
 
 # this initializes the jinja2 environment
@@ -14,10 +14,6 @@ the_jinja_env = jinja2.Environment(
 
 # other functions should go above the handlers or in a separate file
 
-# the handler section
-def getUser(user):
-    name = user
-    return name
 
 class MainHandler(webapp2.RequestHandler):
   def get(self):  # for a get request
@@ -38,12 +34,49 @@ class AboutHandler(webapp2.RequestHandler):
 	def get(self):
 	   about_template = the_jinja_env.get_template('templates/about.html')
 	   self.response.write(about_template.render())
-class getUserName(webapp2.RequestHandler):
+
+class SignUp(webapp2.RequestHandler):
     def post(self):
-        user = self.request.get('user')
-        usernam = getUser(user)
-        account = username(user = usernam)
-        account.put();
+        username = self.request.get('username')
+        email = self.request.get('email')
+        password = self.request.get('password')
+        fullname = self.request.get('fullname')
+
+        user = User(fullname = fullname, username = username, email = email, password = password)
+        query = User().query().filter(User.username).fetch()
+        if not (user in query):
+	        query.insert(0,user)
+	        user.put()
+
+
+class ValidateUser(webapp2.RequestHandler):
+	def post(self):
+
+		planner_template = the_jinja_env.get_template('templates/planner.html')
+		username = self.request.get('username')
+		password = self.request.get('password')
+		usernames = User.query().filter(User.username).fetch()
+		passwords =User.query().filter(User.password).fetch()
+
+		if (username in usernames) and (password in passwords):
+			user = User.query().filter(User.username==name).fetch()
+			user.islogged=True
+			variable_dict={
+				'username':user.username
+			}
+			self.response.write(planner_template.render(variable_dict))
+		
+		else:
+			variable_dict={
+			'message': "Your account doesn't exist, please sign up"
+			}
+			
+			self.response.write(planner_template.render(variable_dict))
+
+
+
+
+
 # the app configuration section	
 app = webapp2.WSGIApplication([
   #('/', MainPage),
@@ -51,5 +84,6 @@ app = webapp2.WSGIApplication([
   ('/login', LoginHandler),
   ('/sign', SignHandler),
   ('/about', AboutHandler),
-  ('/uploadUser', getUserName)
+  ('/uploadUser', SignUp),
+  ('/validateUser',ValidateUser)
   ], debug=True)

@@ -64,7 +64,53 @@ body{
 	margin:0 auto;
 }
 #login {
-	margin-top: 7em;
-	
+	padding:1em;
+	border-radius: 20px;
+	background-color:white;
+	width:30vw;
+	margin:25vh auto 0px auto;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1em;
+	justify-items:center;
+}
 
+#login form{
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1em;
+	justify-items:center;
+}
+
+#login form div{
+	text-align: center;
+}
+#login form input{
+	display: block;
+	margin:1em 0;
+	padding: .5em 1em;
+	border-radius: 20px;
+	border:1px solid black;
+	font-size:1em;
+
+}
+
+#login h1{
+	width:100%;
+	text-align:center;
+	padding:.5em 0;
+	border-bottom:5px solid var(--blue);
+}
+
+#login input[type="submit"]{
+	padding: .5em 1em;
+	color:black;
+	background-color:var(--orange);
+	font-size: 1.25em;
+	border-radius: 20px;
+}
+
+#login input[type="submit"]:hover{
+	background-color: black;
+	color:var(--orange);
 }
