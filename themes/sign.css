@@ -79,6 +79,13 @@ body{
 	justify-items:center;
 }
 
+#sign h1{
+	width:100%;
+	text-align:center;
+	padding:.5em 0;
+	border-bottom:5px solid var(--blue);
+}
+
 #sign form{
 	display:grid;
 	grid-template-columns: 1fr 1fr;

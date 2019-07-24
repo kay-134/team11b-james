@@ -55,24 +55,26 @@ class ValidateUser(webapp2.RequestHandler):
 		planner_template = the_jinja_env.get_template('templates/planner.html')
 		username = self.request.get('username')
 		password = self.request.get('password')
-		usernames = User.query().filter(User.username).fetch()
-		passwords =User.query().filter(User.password).fetch()
+		# usernames = User.query().filter(User.username).fetch()
+		# passwords =User.query().filter(User.password).fetch()
 
-		if (username in usernames) and (password in passwords):
-			user = User.query().filter(User.username==name).fetch()
-			user.islogged=True
-			variable_dict={
-				'username':user.username
-			}
-			self.response.write(planner_template.render(variable_dict))
+		# if (username in usernames) and (password in passwords):
+		# 	user = User.query().filter(User.username==name).fetch()
+		# 	user.islogged=True
+		# 	variable_dict={
+		# 		'username':user.username
+		# 	}
+		# 	self.response.write(planner_template.render(variable_dict))
 		
-		else:
-			variable_dict={
-			'message': "Your account doesn't exist, please sign up"
-			}
+		# else:
+		# 	variable_dict={
+		# 	'message': "Your account doesn't exist, please sign up."
+		# 	}
 			
-			self.response.write(planner_template.render(variable_dict))
+		# 	self.response.write(planner_template.render(variable_dict))
 
+		planner_template = the_jinja_env.get_template('templates/planner.html')
+		self.response.write(planner_template.render(variable_dict))
 
 
 
