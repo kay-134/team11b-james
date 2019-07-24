@@ -5,6 +5,10 @@ threadsafe: true
 
 handlers:
 
+- url: /js
+  static_dir: js
+
+
 - url: /home\.css
   static_files: home.css
   upload: home\.css

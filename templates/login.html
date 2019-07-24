@@ -14,19 +14,22 @@
 		<li><a href="/login">Login</a></li>
 		<li><a href="/sign">Sign Up</a></li>
 	</ul>
-	<div id="login">
-	<form method = "post" action = "/uploadUser">
-      <div id = "username">
-      What is your username<br>
-      <input type="text" name="user" value="John Doe">
-      </div>
-      
-      <input type="submit" value="Submit Username">
-    </form>
-    
-    </div>
 
 	
 	<!--Main-->
+	<div id="login">
+		<h1>Login</h1>
+		<form method = "post" action = "/validateUser">
+	      <div id = "username">
+	      Username:
+	      <input type="text" name="username" placeholder="Enter your username.">
+	      </div>
+	      <div id="password">
+	      	Password:
+	      	<input type="password" name="password" placeholder="Enter your password.">
+	      </div>
+	      <input type="submit" value="Login">
+	    </form>
+    </div>
 </body>
 </html>
