@@ -32,8 +32,8 @@ class SignHandler(webapp2.RequestHandler):
 
 class AboutHandler(webapp2.RequestHandler):
 	def get(self):
-	   about_template = the_jinja_env.get_template('templates/about.html')
-	   self.response.write(about_template.render())
+		about_template = the_jinja_env.get_template('templates/about.html')
+		self.response.write(about_template.render())
 
 class SignUp(webapp2.RequestHandler):
     def post(self):
@@ -43,10 +43,13 @@ class SignUp(webapp2.RequestHandler):
         fullname = self.request.get('fullname')
 
         user = User(fullname = fullname, username = username, email = email, password = password)
-        query = User().query().filter(User.username).fetch()
+        usernames = User().query().filter(User.username).fetch()
         if not (user in query):
 	        query.insert(0,user)
 	        user.put()
+
+		planner_template = the_jinja_env.get_template('templates/planner.html')
+		self.response.write(planner_template.render())
 
 
 class ValidateUser(webapp2.RequestHandler):
