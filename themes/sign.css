@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+:root{
+	--yellow:rgb(255,255,102);
+	--blue:rgb(114,216,255);
+	--red:rgb(255,102,102);
+	--green:rgb(102,255,102);
+	--orange:rgb(255,198,108);
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+body{
+	font-size:20px;
+	background: linear-gradient(var(--blue),white);
+	height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Ubuntu"
+}
+
+/*Navigation*/
+
+#nav_bar{
+	width:100%;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+	grid-gap: 1em;
+	padding: 1em;
+	align-items: center;
+	background-color:white;
+	position:fixed;
+	top:0;
+	z-index:1;
+}
+
+#nav_bar a{
+	display: block;
+	text-align:center;
+	text-decoration:none;
+	color:black;
+	background-color:var(--orange);
+	padding:1em;
+	border:2px solid black;
+	border-radius: 30px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .25em;
+}
+
+#nav_bar a:hover{
+	color:var(--orange);
+	background-color:black;
+}
+
+#logo{
+	display: block;
+	width:5em;
+	margin:0 auto;
+}
+
+
+/*Main*/
+
+#sign{
+	padding:1em;
+	border-radius: 20px;
+	background-color:white;
+	margin:25vh auto 0px auto;
+	width:40%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1em;
+	justify-items:center;
+}
+
+#sign h1{
+	width:100%;
+	text-align:center;
+	padding:.5em 0;
+	border-bottom:5px solid var(--blue);
+}
+
+#sign form{
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1em;
+	justify-items:center;
+}
+#sign form div{
+	text-align:center;
+}
+
+#sign form input{
+	border-radius: 20px;
+	font-size: 1em;
+	border:1px solid black;
+	padding:.25em 1em;
+	display: block;
+	margin:.5em 0;
+}
+#sign input[type="submit"]{
+	padding: .5em 1em;
+	color:black;
+	background-color:var(--orange);
+	font-size: 1.25em;
+	border-radius: 20px;
+	grid-column: span 2;
+}
+
+#sign input[type="submit"]:hover{
+	background-color: black;
+	color:var(--orange);
+}

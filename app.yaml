@@ -4,8 +4,20 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /styles
-  static_dir: styles
+
+- url: /js
+  static_dir: js
+
+
+- url: /home\.css
+  static_files: home.css
+  upload: home\.css
+
+- url: /images
+  static_dir:  images
+
+- url: /themes
+  static_dir: themes
 
 - url: /.*
   script: main.app
