@@ -69,8 +69,10 @@ body{
 
 #main{
 	margin-top:7em;
+	width:100%;
 	display: grid;
 	grid-template-columns: 1fr;
+	padding:2em;
 }
 #content{
 	text-align: center;
@@ -84,23 +86,18 @@ body{
 
 .person h2{
 	grid-column: span 2;
-}
-
-#kendric{
 
 }
+
 #ken_image{
-	border-radius:50%
+	border-radius:50%;
+	border-image: 5px solid black 
 }
-#kayley{
 
-}
-#ka_image{
+#kay_image{
 	border-radius:50%;
 }
-#mannendri{
 
-}
 #man_image{
-	border-radius:50%
+	border-radius:50%;
 }

@@ -120,7 +120,41 @@ class DayLayoutHandler(webapp2.RequestHandler):
 		day_template = the_jinja_env.get_template('templates/day.html')
 		self.response.write(day_template.render(variable_dict))
 
+class DailyObjective(webapp2.RequestHandler):
+	def post(self):
+		objective = self.request.get('objective')
+		new_objective = Objective(name=objective)
 
+		objectives_query = Objective.query().fetch()
+
+
+		objectives_query.insert(0,new_objective)
+		new_objective.put()
+
+		variable_dict = { 
+			'objective':objectives_query
+		}
+
+		day_template = the_jinja_env.get_template('templates/day.html')
+		self.response.write(day_template.render(variable_dict))
+
+class DailyEvent(webapp2.RequestHandler):
+	def post(self):
+		event = self.request.get('event')
+		new_event = Event(name=event)
+
+		events_query = Event.query().fetch()
+
+
+		events_query.insert(0,new_objective)
+		new_event.put()
+
+		variable_dict = { 
+			'event':events_query
+		}
+
+		day_template = the_jinja_env.get_template('templates/day.html')
+		self.response.write(day_template.render(variable_dict))
 
 
 
@@ -133,6 +167,8 @@ app = webapp2.WSGIApplication([
   ('/sign', SignUpHandler),
   ('/about', AboutHandler),
   ('/planner',PlannerHandler),
+  ('/daily_objective',DailyObjective),
+  ('/daily_event', DailyEvent),
   # ('/signout',SignOut),
   ('/day',DayLayoutHandler),
   ('/signout', MainHandler )
