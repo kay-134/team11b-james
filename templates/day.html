@@ -19,16 +19,26 @@
 	<!--Main-->
 	<div id="main">
 		<div id="objectives">
-			<form>
-				<input type="checkbox" name="objective" value="">
+			<form method="post" action="/day">
+				<input type="text" name="objective" placeholder="Enter an objective: " >
+				<input type="submit" value="Add">
 			</form>
-			<button id="add_objective">Add Objective</button>
+			<form>
+				{% for objective in objectives %}
+				<input type="checkbox" name="objective" value={{objective.name}}>
+				{% endfor %}
+			</form>
 		</div>
 		<div id="day">
+			<form method="post" action="/day">
+				<input type="text" name="event" placeholder="Enter an event: " >
+				<input type="submit" value="Add">
+			</form>
 			<ul>
-
+				{% for event in events %}
+				<li>{{event.name}}</li>
+				{% endfor %}
 			</ul>
-			<button id="add_event">Add Event</button>
 		</div>
 	</div>
 <script type="text/javascript" src="js/day.js"></script>

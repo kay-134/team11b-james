@@ -2,7 +2,7 @@
 import webapp2
 import jinja2
 import os
-from models import User
+from models import User, Objective, Event
 
 
 # this initializes the jinja2 environment
@@ -97,7 +97,32 @@ class DayLayoutHandler(webapp2.RequestHandler):
 		day_template = the_jinja_env.get_template('templates/day.html')
 		self.response.write(day_template.render())
 
-		
+	def post(self):
+		event = self.request.get('event');
+		objective = self.request.get('objective')
+		new_event = Event(name=event)
+		new_objective = Objective(name=objective)
+
+		events_query = Event.query().fetch()
+		objectives_query = Objective.query().fetch()
+
+		events_query.insert(0,new_event)
+		new_event.put()
+
+		objectives_query.insert(0,new_objective)
+		new_objective.put()
+
+		variable_dict = { 
+			'objectives': objectives_query,
+			'events': events_query
+		}
+
+		day_template = the_jinja_env.get_template('templates/day.html')
+		self.response.write(day_template.render(variable_dict))
+
+
+
+
 
 # the app configuration section	
 app = webapp2.WSGIApplication([

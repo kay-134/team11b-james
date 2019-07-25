@@ -8,7 +8,7 @@ class User(ndb.Model):
 
 class Objective(ndb.Model):
 	name = ndb.StringProperty(required=True)
-	objective_complete = ndb.BooleanProperty(required=True)
+	objective_complete = ndb.BooleanProperty(required=False)
 	# user =
 
 class Event(ndb.Model):
