@@ -14,6 +14,7 @@ the_jinja_env = jinja2.Environment(
 
 # other functions should go above the handlers or in a separate file
 
+current_user = ""
 users_query = User.query().fetch()
 
 class MainHandler(webapp2.RequestHandler):
@@ -36,12 +37,17 @@ class LoginHandler(webapp2.RequestHandler):
 		login_template = the_jinja_env.get_template('templates/login.html')
 		username_input = self.request.get('username')
 		password_input = self.request.get('password')
+
+
+
 		variable_dict={}
 		for user in users_query:
 			if (username_input==user.username) and (password_input==user.password):
+				current_user = username_input
 				variable_dict={
-					'username':user.username
+					'username':current_user
 				}
+				
 				self.response.write(planner_template.render(variable_dict))
 			continue
 		if variable_dict=={}:
@@ -82,8 +88,11 @@ class SignOut(webapp2.RequestHandler):
 
 class PlannerHandler(webapp2.RequestHandler):
 	def get(self):
+		variable_dict = {
+		'username':current_user
+		}
 		planner_template = the_jinja_env.get_template('templates/planner.html')
-		self.response.write(planner_template.render())
+		self.response.write(planner_template.render(variable_dict))
 
 class DayLayoutHandler(webapp2.RequestHandler):
 	def get(self):
@@ -140,12 +149,6 @@ app = webapp2.WSGIApplication([
   ('/planner',PlannerHandler),
   ('/daily_objective',DailyObjective),
   ('/daily_event', DailyEvent),
-<<<<<<< HEAD
   ('/signout',SignOut),
   ('/day',DayLayoutHandler)
-=======
-  # ('/signout',SignOut),
-  ('/day',DayLayoutHandler),
-  ('/signout', MainHandler )
->>>>>>> c563c24f4a60daa92d571418e40f2498622f0089
   ], debug=True)
