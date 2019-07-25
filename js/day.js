@@ -48,7 +48,5 @@ function addEvent(){
 	function deleteEvent(){
 	 	eventList.removeChild(eventContainer);
 	}
-
-}
-
+//so idk how to do the rest but some code for the list is here
 
