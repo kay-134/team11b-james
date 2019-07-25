@@ -134,5 +134,6 @@ app = webapp2.WSGIApplication([
   ('/about', AboutHandler),
   ('/planner',PlannerHandler),
   # ('/signout',SignOut),
-  ('/day',DayLayoutHandler)
+  ('/day',DayLayoutHandler),
+  ('/signout', MainHandler )
   ], debug=True)

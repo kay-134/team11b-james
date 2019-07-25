@@ -13,4 +13,5 @@ class Objective(ndb.Model):
 
 class Event(ndb.Model):
 	name = ndb.StringProperty(required=True)
+	date = ndb.StringProperty(required=True)
 	# user = 
