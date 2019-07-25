@@ -66,22 +66,42 @@ function showCalendar(month, year) {
             else {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
-
+                cell.classList.add("days");
+                cell.setAttribute('id', `${currentYear}${months[month]}${date}`)
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                 } // color today's date
-                else if (date === 1 && year === today.getFullYear() && month === today.getMonth() ){
-                    cell.classList.add('july-01')
-                }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
             }
+
+            
 
 
         }
 
         tbl.appendChild(row); // appending each row into calendar body.
     }
+    
 
 }
+
+$(document).ready(function(){
+    $(".days").click(showDaily)
+
+function showDaily(){
+    console.log('Getting daily data')
+    $(location).attr('href','/day');
+
+
+};
+});
+
+
+
+
+ 
+
+
+

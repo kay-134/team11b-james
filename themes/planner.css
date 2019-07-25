@@ -1,7 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
+a:link {
+  color:  white;
+}
 
+/* visited link */
+a:visited {
+  color: white;
+}
 
+/* mouse over link */
+a:hover {
+  color: blue;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}
+
+.template{
+	margin-top: 3em;
+}
 
 
 td:hover {
@@ -70,3 +90,10 @@ body{
 	width:5em;
 	margin:0 auto;
 }
+
+#main{
+	margin-top:10em;
+	text-align:center;
+}
+
+
