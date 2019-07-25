@@ -140,6 +140,12 @@ app = webapp2.WSGIApplication([
   ('/planner',PlannerHandler),
   ('/daily_objective',DailyObjective),
   ('/daily_event', DailyEvent),
+<<<<<<< HEAD
   ('/signout',SignOut),
   ('/day',DayLayoutHandler)
+=======
+  # ('/signout',SignOut),
+  ('/day',DayLayoutHandler),
+  ('/signout', MainHandler )
+>>>>>>> c563c24f4a60daa92d571418e40f2498622f0089
   ], debug=True)

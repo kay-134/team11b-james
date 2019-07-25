@@ -4,7 +4,7 @@ let currentYear = today.getFullYear();
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
@@ -56,6 +56,8 @@ function showCalendar(month, year) {
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
+                cell.classList.add("days");
+                cell.setAttribute('id', `${currentYear}${months[month]}${date}`)
 
             }
             else if (date > daysInMonth) {
@@ -67,7 +69,8 @@ function showCalendar(month, year) {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
                 cell.classList.add("days");
-                cell.setAttribute('id', `${currentYear}${months[month]}${date}`)
+                cell.setAttribute('id', `${currentYear} ${months[month]} ${date}`)
+                console.log()
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                 } // color today's date
@@ -86,16 +89,20 @@ function showCalendar(month, year) {
     
 
 }
-
+newID = null;
 $(document).ready(function(){
-    $(".days").click(showDaily)
+    $(".days").dblclick(showDaily)
 
 function showDaily(){
     console.log('Getting daily data')
-    $(location).attr('href','/day');
+    let id = this.id
+    newID = id
+    $('.template').append(`The date is ${id} `)
+    console.log(id)
 
 
 };
+
 });
 
 const date 
