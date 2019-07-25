@@ -5,5 +5,12 @@ class User(ndb.Model):
 	username = ndb.StringProperty(required=True)
 	email = ndb.StringProperty(required=True)
 	password = ndb.StringProperty(required=True)
-	islogged = ndb.BooleanProperty(default=False)
 
+class Objective(ndb.Model):
+	name = ndb.StringProperty(required=True)
+	objective_complete = ndb.BooleanProperty(required=True)
+	# user =
+
+class Event(ndb.Model):
+	name = ndb.StringProperty(required=True)
+	# user = 

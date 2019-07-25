@@ -116,3 +116,8 @@ body{
 	background-color: black;
 	color:var(--orange);
 }
+
+#error{
+	color:var(--red);
+	text-align: center;
+}
