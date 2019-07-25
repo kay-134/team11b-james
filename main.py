@@ -25,7 +25,7 @@ class LoggedHomeHandler(webapp2.RequestHandler):
 	def get(self):
 		logged_home_template = the_jinja_env.get_template('templates/logged_home.html')
 		self.response.write(logged_home_template.render())
-		
+
 class LoginHandler(webapp2.RequestHandler):
   def get(self):  # for a get request
     login_template = the_jinja_env.get_template('templates/login.html')
@@ -96,6 +96,9 @@ class DayLayoutHandler(webapp2.RequestHandler):
 	def get(self):
 		day_template = the_jinja_env.get_template('templates/day.html')
 		self.response.write(day_template.render())
+
+		
+
 # the app configuration section	
 app = webapp2.WSGIApplication([
   #('/', MainPage),

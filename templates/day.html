@@ -9,12 +9,28 @@
 <body>
 	<!--Navigation-->
 	<ul id="nav_bar">
-		<li><a href="/">Home</a></li>
+		<li><a href="/logged_home">Home</a></li>
 		<li><a href="/about">About</a></li>
 		<li><img id="logo" src="images/icon.png"></li>
-		<li><a href="/login">Login</a></li>
-		<li><a href="/sign">Sign Up</a></li>
+		<li><a href="/planner">Calendar</a></li>
+		<li><a href="/signout">Log Out</a></li>
 	</ul>
 
+	<!--Main-->
+	<div id="main">
+		<div id="objectives">
+			<form>
+				<input type="checkbox" name="objective" value="">
+			</form>
+			<button id="add_objective">Add Objective</button>
+		</div>
+		<div id="day">
+			<ul>
+
+			</ul>
+			<button id="add_event">Add Event</button>
+		</div>
+	</div>
+<script type="text/javascript" src="js/day.js"></script>
 </body>
 </html>
