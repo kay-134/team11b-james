@@ -98,10 +98,4 @@ function showDaily(){
 };
 });
 
-
-
-
- 
-
-
-
+const date 

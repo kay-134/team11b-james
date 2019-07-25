@@ -75,17 +75,10 @@ class AboutHandler(webapp2.RequestHandler):
 		about_template = the_jinja_env.get_template('templates/about.html')
 		self.response.write(about_template.render())
 
-
-   
-
-
-
-
-# class SignOut(webapp2.RequestHandler):
-# 	def get(self):
-# 		userOne.islogged=False
-# 		home_template = the_jinja_env.get_template('templates/home.html')
-# 		self.response.write(home_template.render())
+class SignOut(webapp2.RequestHandler):
+	def get(self):
+		home_template = the_jinja_env.get_template('templates/home.html')
+		self.response.write(home_template.render())
 
 class PlannerHandler(webapp2.RequestHandler):
 	def get(self):
@@ -94,31 +87,9 @@ class PlannerHandler(webapp2.RequestHandler):
 
 class DayLayoutHandler(webapp2.RequestHandler):
 	def get(self):
+
 		day_template = the_jinja_env.get_template('templates/day.html')
 		self.response.write(day_template.render())
-
-	def post(self):
-		event = self.request.get('event');
-		objective = self.request.get('objective')
-		new_event = Event(name=event)
-		new_objective = Objective(name=objective)
-
-		events_query = Event.query().fetch()
-		objectives_query = Objective.query().fetch()
-
-		events_query.insert(0,new_event)
-		new_event.put()
-
-		objectives_query.insert(0,new_objective)
-		new_objective.put()
-
-		variable_dict = { 
-			'objectives': objectives_query,
-			'events': events_query
-		}
-
-		day_template = the_jinja_env.get_template('templates/day.html')
-		self.response.write(day_template.render(variable_dict))
 
 class DailyObjective(webapp2.RequestHandler):
 	def post(self):
@@ -132,7 +103,7 @@ class DailyObjective(webapp2.RequestHandler):
 		new_objective.put()
 
 		variable_dict = { 
-			'objective':objectives_query
+			'objectives':objectives_query
 		}
 
 		day_template = the_jinja_env.get_template('templates/day.html')
@@ -146,11 +117,11 @@ class DailyEvent(webapp2.RequestHandler):
 		events_query = Event.query().fetch()
 
 
-		events_query.insert(0,new_objective)
+		events_query.insert(0,new_event)
 		new_event.put()
 
 		variable_dict = { 
-			'event':events_query
+			'events':events_query
 		}
 
 		day_template = the_jinja_env.get_template('templates/day.html')
@@ -169,6 +140,6 @@ app = webapp2.WSGIApplication([
   ('/planner',PlannerHandler),
   ('/daily_objective',DailyObjective),
   ('/daily_event', DailyEvent),
-  # ('/signout',SignOut),
+  ('/signout',SignOut),
   ('/day',DayLayoutHandler)
   ], debug=True)
