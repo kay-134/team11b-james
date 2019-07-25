@@ -19,7 +19,7 @@
 	<!--Main-->
 	<div id="login">
 		<h1>Login</h1>
-		<form method = "post" action = "/validateUser">
+		<form method = "post" action = "/login">
 	      <div id = "username">
 	      Username:
 	      <input type="text" name="username" placeholder="Enter your username.">
@@ -30,6 +30,7 @@
 	      </div>
 	      <input type="submit" value="Login">
 	    </form>
+	    <h3 id="error">{{message}}</h3>
     </div>
 </body>
 </html>

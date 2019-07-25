@@ -91,6 +91,9 @@ body{
 	margin:0 auto;
 }
 
-.container p{
+#main{
 	margin-top:10em;
+	text-align:center;
 }
+
+
